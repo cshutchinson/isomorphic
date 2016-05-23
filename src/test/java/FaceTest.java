@@ -16,7 +16,7 @@ public class FaceTest {
 
     @Test
     public void faceHasNineSubFacesInA3By3Matrix() {
-        //Face should have nine subfaces arrange in 2D array
+        //Face should have nine subfaces arranged in 2D array
         assertEquals(testFace.length(), 9);
     }
 
@@ -114,5 +114,22 @@ public class FaceTest {
         newRow[2] = new SubFace(SubFace.Color.WHITE);
 
         assertArrayEquals(modifiedFace.getFace(), testFace.setSubFaceRow(0, newRow));
+    }
+
+    @Test
+    public void aFaceCanSetASubFaceColumn(){
+        Face testFace = new Face(3, Face.Position.BOTTOM, SubFace.Color.RED);
+
+        Face modifiedFace = new Face(3, Face.Position.LEFT, SubFace.Color.RED);
+        modifiedFace.setSubFace(0, 0, SubFace.Color.WHITE);
+        modifiedFace.setSubFace(1, 0, SubFace.Color.WHITE);
+        modifiedFace.setSubFace(2, 0, SubFace.Color.WHITE);
+
+        SubFace[] newRow = new SubFace[3];
+        newRow[0] = new SubFace(SubFace.Color.WHITE);
+        newRow[1] = new SubFace(SubFace.Color.WHITE);
+        newRow[2] = new SubFace(SubFace.Color.WHITE);
+
+        assertArrayEquals(modifiedFace.getFace(), testFace.setSubFaceColumn(0, newRow));
     }
 }

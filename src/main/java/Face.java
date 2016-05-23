@@ -50,6 +50,13 @@ public class Face {
         return face;
     }
 
+    public SubFace[][] setSubFaceColumn(Integer columnNum, SubFace[] column){
+        for(int i=0; i<dimension; i++){
+            face[i][columnNum]=column[i];
+        }
+        return face;
+    }
+
     public SubFace[] getFaceRow(Integer row){
         return this.face[row];
     }
