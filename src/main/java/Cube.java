@@ -17,6 +17,8 @@ public class Cube {
         return cube;
     }
 
-
+    public Face [] rotate(Face.Position position){
+        return cube;
+    }
 
 }

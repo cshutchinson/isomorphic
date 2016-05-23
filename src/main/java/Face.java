@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.Collections;
 
 public class Face {
 
@@ -46,6 +45,11 @@ public class Face {
         return face;
     }
 
+    public SubFace[][] setSubFaceRow(Integer rowNum, SubFace[] row){
+        face[rowNum] = row;
+        return face;
+    }
+
     public SubFace[] getFaceRow(Integer row){
         return this.face[row];
     }
@@ -59,12 +63,19 @@ public class Face {
     }
 
     public SubFace[] reverseRow(Integer row){
-        SubFace[] current = this.getFaceRow(row);
-        SubFace[] newRow = new SubFace[current.length];
-        for(int i=0; i<current.length; i++){
-            newRow[i]=current[current.length-i-1];
+        return reverseArray(this.getFaceRow(row));
+    }
+
+    public SubFace[] reverseColumn(Integer column){
+        return reverseArray(this.getFaceColumn(column));
+    }
+
+    private SubFace[] reverseArray(SubFace[] arrayToReverse){
+        SubFace[] newArray = new SubFace[arrayToReverse.length];
+        for(int i=0; i<arrayToReverse.length; i++){
+            newArray[i]=arrayToReverse[arrayToReverse.length-i-1];
         }
-        return newRow;
+        return newArray;
     }
 
     @Override

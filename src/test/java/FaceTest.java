@@ -87,6 +87,32 @@ public class FaceTest {
 
     @Test
     public void aFaceCanReverseAColumn(){
+        Face testFace = new Face(3, Face.Position.BACK, SubFace.Color.GREEN);
+        testFace.setSubFace(0, 2, SubFace.Color.YELLOW);
+        testFace.setSubFace(2, 2, SubFace.Color.ORANGE);
 
+        SubFace[] comparison = new SubFace[3];
+        comparison[0] = new SubFace(SubFace.Color.ORANGE);
+        comparison[1] = new SubFace(SubFace.Color.GREEN);
+        comparison[2] = new SubFace(SubFace.Color.YELLOW);
+
+        assertArrayEquals(comparison, testFace.reverseColumn(2));
+    }
+
+    @Test
+    public void aFaceCanSetASubFaceRow(){
+        Face testFace = new Face(3, Face.Position.LEFT, SubFace.Color.BLUE);
+
+        Face modifiedFace = new Face(3, Face.Position.LEFT, SubFace.Color.BLUE);
+        modifiedFace.setSubFace(0, 0, SubFace.Color.WHITE);
+        modifiedFace.setSubFace(0, 1, SubFace.Color.WHITE);
+        modifiedFace.setSubFace(0, 2, SubFace.Color.WHITE);
+
+        SubFace[] newRow = new SubFace[3];
+        newRow[0] = new SubFace(SubFace.Color.WHITE);
+        newRow[1] = new SubFace(SubFace.Color.WHITE);
+        newRow[2] = new SubFace(SubFace.Color.WHITE);
+
+        assertArrayEquals(modifiedFace.getFace(), testFace.setSubFaceRow(0, newRow));
     }
 }

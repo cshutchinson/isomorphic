@@ -8,15 +8,15 @@ import static org.junit.Assert.assertEquals;
 
 public class CubeTest {
 
-    private Cube testCube = new Cube();
-
     @Test
     public void aCubeShouldHaveSixFaces(){
+        Cube testCube = new Cube();
         assertEquals(testCube.getCube().length, 6);
     }
 
     @Test
     public void eachCubeFaceShouldHaveAUniqueMiddleColor(){
+        Cube testCube = new Cube();
         HashSet<SubFace.Color> faceColor = new HashSet<>();
         for (int x=0; x<testCube.getCube().length; x++){
             faceColor.add((testCube.getCube()[x].getColor()));
@@ -26,6 +26,14 @@ public class CubeTest {
 
     @Test
     public void aCubeCanRotateAFaceClockwise(){
+        Cube testCube = new Cube();
+        Cube result = new Cube();
+
+        
+
+        testCube.rotate(Face.Position.TOP);
+
+
 
     }
 
@@ -36,12 +44,6 @@ public class CubeTest {
 
     @Test
     public void aCubeGivenATextInputRotatesAFaceInAppropriateDirection(){
-
-    }
-
-    @Test
-    public void aCubeCanReverseARow(){
-        Face testFace = testCube.getCube()[0];
 
     }
 
